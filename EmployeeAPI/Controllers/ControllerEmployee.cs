@@ -23,8 +23,22 @@ namespace EmployeeAPI.Controllers
         [HttpGet("")]
         public async Task<ActionResult<IEnumerable<Employee>>> GetAll()
         {
-            var products = await _repository.GetAllAsync();
-            return Ok(products);
+            var employee = await _repository.GetAllAsync();
+            return Ok(employee);
+        }
+
+        [HttpGet("/findById")]
+        public async Task<ActionResult<Employee>> GetById([FromQuery] int id)
+        {
+            var employee = await _repository.GetByIdAsync(id);
+            return Ok(employee);
+        }
+
+        [HttpGet("/findByName/{name}")]
+        public async Task<ActionResult<Employee>> GetByName([FromRoute] string name)
+        {
+            var employee = await _repository.GetByNameAsync(name);
+            return Ok(employee);
         }
 
     }
