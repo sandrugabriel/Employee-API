@@ -1,0 +1,31 @@
+{
+	"info": {
+		"_postman_id": "ecea401a-c57d-4a90-913b-64ceb6636487",
+		"name": "employee-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33668461"
+	},
+	"item": [
+		{
+			"name": "GetAllEmployee",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7272/api/v1/employee",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7272",
+					"path": [
+						"api",
+						"v1",
+						"employee"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
