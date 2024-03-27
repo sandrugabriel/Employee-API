@@ -1,4 +1,5 @@
-﻿using EmployeeAPI.Models;
+﻿using EmployeeAPI.Dto;
+using EmployeeAPI.Models;
 using EmployeeAPI.Repository.interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -25,6 +26,29 @@ namespace EmployeeAPI.Controllers
         {
             var products = await _repository.GetAllAsync();
             return Ok(products);
+        }
+
+
+        [HttpPost("/create")]
+        public async Task<ActionResult<Employee>> Create([FromBody] CreateRequest request)
+        {
+            var employee = await _repository.Create(request);
+            return Ok(employee);
+
+        }
+
+        [HttpPut("/update")]
+        public async Task<ActionResult<Employee>> Update([FromQuery] int id, [FromBody] UpdateRequest request)
+        {
+            var employee = await _repository.Update(id, request);
+            return Ok(employee);
+        }
+
+        [HttpDelete("/deleteById")]
+        public async Task<ActionResult<Employee>> DeleteCarById([FromQuery] int id)
+        {
+            var employee = await _repository.DeleteById(id);
+            return Ok(employee);
         }
 
     }
