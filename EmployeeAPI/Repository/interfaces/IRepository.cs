@@ -8,6 +8,7 @@ namespace EmployeeAPI.Repository.interfaces
     {
         Task<IEnumerable<Employee>> GetAllAsync();
 
+        Task<Employee> GetById(int id);
 
         Task<Employee> Create(CreateRequest request);
 

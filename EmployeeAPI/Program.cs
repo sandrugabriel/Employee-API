@@ -1,6 +1,8 @@
 using EmployeeAPI.Data;
 using EmployeeAPI.Repository;
 using EmployeeAPI.Repository.interfaces;
+using EmployeeAPI.Service;
+using EmployeeAPI.Service.interfaces;
 using FluentMigrator.Runner;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,8 +15,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
 builder.Services.AddScoped<IRepository, RepositoryEmployee>();
+builder.Services.AddScoped<IQueryService, QueryService>();
+builder.Services.AddScoped<ICommandService,CommandService>();
 
 builder.Services.AddDbContext<AppDbContext>(option => option.UseMySql(builder.Configuration.GetConnectionString("Default")!,
     new MySqlServerVersion(new Version(8, 0, 6))));

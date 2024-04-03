@@ -23,6 +23,18 @@ namespace EmployeeAPI.Repository
             return await _context.Employees.ToListAsync();
         }
 
+        public async Task<Employee> GetById(int id)
+        {
+            var employees = await _context.Employees.ToListAsync();
+
+            for(int i=0;i<employees.Count;i++)
+            {
+                if (employees[i].Id == id)
+                    return employees[i];
+            }
+
+            return null;
+        }
 
 
         public async Task<Employee> Create(CreateRequest request)
