@@ -38,14 +38,14 @@ namespace Teste.Employees.UnitTeste
         [Fact]
         public async Task GetAll_ValidData()
         {
-            var banks = TestEmployeeFactory.CreateEmployees(5);
+            var employees = TestEmployeeFactory.CreateEmployees(5);
 
-            _mock.Setup(repo => repo.GetAllAsync()).ReturnsAsync(banks);
+            _mock.Setup(repo => repo.GetAllAsync()).ReturnsAsync(employees);
 
             var result = await _service.GetAll();
 
             Assert.NotNull(result);
-            Assert.Equal(banks, result);
+            Assert.Equal(employees, result);
 
         }
 
@@ -62,13 +62,13 @@ namespace Teste.Employees.UnitTeste
         [Fact]
         public async Task GetById_ValidData()
         {
-            var bank = TestEmployeeFactory.CreateEmployee(1);
-            _mock.Setup(repo => repo.GetById(1)).ReturnsAsync(bank);
+            var employee = TestEmployeeFactory.CreateEmployee(1);
+            _mock.Setup(repo => repo.GetById(1)).ReturnsAsync(employee);
 
             var result = await _service.GetById(1);
 
             Assert.NotNull(result);
-            Assert.Equal(bank, result);
+            Assert.Equal(employee, result);
 
         }
 
