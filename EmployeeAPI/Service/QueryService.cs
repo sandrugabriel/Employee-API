@@ -34,7 +34,7 @@ namespace EmployeeAPI.Service
 
             if (employees == null)
             {
-                throw new ItemsDoNotExist(Constants.Constants.ItemDoesNotExist);
+                throw new ItemDoesNotExist(Constants.Constants.ItemDoesNotExist);
             }
 
             return employees;

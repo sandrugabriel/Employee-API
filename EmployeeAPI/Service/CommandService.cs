@@ -55,7 +55,7 @@ namespace EmployeeAPI.Service
             {
                 throw new ItemDoesNotExist(Constants.Constants.ItemDoesNotExist);
             }
-            employee = await _repository.DeleteById(id);
+            await _repository.DeleteById(id);
             return employee;
         }
 
