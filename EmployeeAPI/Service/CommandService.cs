@@ -39,7 +39,7 @@ namespace EmployeeAPI.Service
             }
 
 
-            if (employee.Salary <= 0)
+            if (request.Salary <= 0)
             {
                 throw new InvalidSalary(Constants.Constants.InvalidSalary);
             }
